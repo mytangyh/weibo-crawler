@@ -292,6 +292,7 @@ class Weibo(object):
         captcha_url = js.get("url")
         if captcha_url:
             logger.warning("检测到验证码挑战。正在打开验证码页面以供手动验证。")
+            return False
             webbrowser.open(captcha_url)
         else:
             logger.warning("检测到可能的验证码挑战，但未提供验证码 URL。请手动检查浏览器并完成验证码验证。")
